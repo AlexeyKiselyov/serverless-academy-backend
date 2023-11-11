@@ -2,14 +2,12 @@
 
 ## Guide:
 
-1.  <a href = "https://nodejs.org/uk" target="_blank" rel="noreferrer noopener">Need
-    NODE.js.</a>.
-2.  <a href = "https://www.docker.com/products/docker-desktop/" target="_blank" rel="noreferrer noopener">Need
+1.  <a href = "https://www.docker.com/products/docker-desktop/" target="_blank" rel="noreferrer noopener">Need
     Docker</a>.
-3.  Write in terminal `cd src`.
-4.  Add `.env` file with your credentials in `.\backend` folder.
-5.  Write in terminal `docker-compose up` to launch backend and database.
-6.  REST API will be available on the address: `http://localhost:3000/`.
+2.  Write in terminal `cd src`.
+3.  Add `.env` file with your credentials in `.\backend` folder.
+4.  Write in terminal `docker-compose up` to launch backend and database.
+5.  REST API will be available on the address: `http://localhost:3000/`.
 
 <h2 align = "center"> Task description.</h2>
 
