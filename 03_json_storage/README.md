@@ -12,6 +12,22 @@
 
 5.  REST API will be available on the address: `http://localhost:3000/`.
 
+### Example
+
+- POST request:
+
+`curl -XPOST 'http://localhost:3000/demo_bucket/hello'` \
+`-H 'content-type: application/json'` \
+`-d '{"hello": "world"}'`
+
+Response: `{"hello":"world"}`
+
+- GET request:
+
+`curl 'http://localhost:3000/demo_bucket/hello'`
+
+Response: `{"hello":"world"}`
+
 <h2 align = "center"> Task description.</h2>
 
 In this task you need to create a full clone of jsonbase.com
@@ -23,21 +39,8 @@ In this task you need to create a full clone of jsonbase.com
   - GET /<json_path> - Allows a user to access previously stored JSON
 - You can use either express or Koa framework.
 
-### Example
-
-1. POST request:
-
-`curl -XPUT 'https://jsonbase.com/demo_bucket/hello'` \
-`-H 'content-type: application/json'` \
-`-d '{"hello": "world"}'`
-
-Response: `{"hello":"world"}`
-
-2. GET request:
-
-`curl 'https://jsonbase.com/demo_bucket/hello'`
-
-Response: `{"hello":"world"}`
+Link to old jsonbase.com:
+https://web.archive.org/web/20230602205819/https://jsonbase.com/
 
 ---
 
