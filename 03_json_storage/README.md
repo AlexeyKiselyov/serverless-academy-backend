@@ -10,13 +10,13 @@
 
 - `npm start` or `node server.js` to launch REST API.
 
-5.  REST API will be available on the address: `http://localhost:3000/`.
+5.  REST API will be available on the address: `http://localhost:3000/api/`.
 
 ### Example
 
 - POST request:
 
-`curl -XPOST 'http://localhost:3000/demo_bucket/hello'` \
+`curl -XPOST 'http://localhost:3000/api/demo_bucket/hello'` \
 `-H 'content-type: application/json'` \
 `-d '{"hello": "world"}'`
 
@@ -24,7 +24,7 @@ Response: `{"hello":"world"}`
 
 - GET request:
 
-`curl 'http://localhost:3000/demo_bucket/hello'`
+`curl 'http://localhost:3000/api/demo_bucket/hello'`
 
 Response: `{"hello":"world"}`
 

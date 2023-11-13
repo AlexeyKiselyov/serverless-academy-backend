@@ -9,7 +9,7 @@ const app = express();
 app.use(logger('dev'));
 app.use(express.json());
 
-app.use('/country-by-ip', countryRouter);
+app.use('/api/country-by-ip', countryRouter);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });

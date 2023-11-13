@@ -10,8 +10,8 @@ const app = express();
 app.use(logger('dev'));
 app.use(express.json());
 
-app.use('/auth', authRouter);
-app.use('/me', usersRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/me', usersRouter);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });

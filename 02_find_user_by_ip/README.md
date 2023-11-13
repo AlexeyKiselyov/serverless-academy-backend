@@ -10,7 +10,8 @@
 
 - `npm start` or `node server.js` to launch REST API.
 
-5.  REST API will be available on the address: `http://localhost:3000/`.
+5.  REST API will be available on the address:
+    `http://localhost:3000/api/country-by-ip`.
 
 <h2 align = "center"> Task description.</h2>
 

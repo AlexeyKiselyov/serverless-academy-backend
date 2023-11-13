@@ -11,13 +11,13 @@
 - `npm start` or `node server.js` to launch REST API.
 
 5.  REST API will be available on the address:
-    `http://localhost:3000/shortlinker`.
+    `http://localhost:3000/api/shortlinker`.
 
 ### Example
 
 - POST request:
 
-`curl -XPOST 'http://localhost:3000/shortlinker'` \
+`curl -XPOST 'http://localhost:3000/api/shortlinker'` \
 `-H 'content-type: application/json'` \
 `-d '{"url": "https://some_long_url"}'`
 
@@ -25,7 +25,7 @@ Response: `{"url":"short_url"}`
 
 - GET request:
 
-`curl 'http://localhost:3000/shortlinker/short_url'`
+`curl 'http://localhost:3000/api/shortlinker/short_url'`
 
 Response: `{"originalUrl":"original_lond_Url"}`
 

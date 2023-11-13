@@ -9,7 +9,7 @@ const app = express();
 app.use(logger('dev'));
 app.use(express.json());
 
-app.use('/shortlinker', shortlikerRouter);
+app.use('/api/shortlinker', shortlikerRouter);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });

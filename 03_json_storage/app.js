@@ -9,7 +9,7 @@ const app = express();
 app.use(logger('dev'));
 app.use(express.json());
 
-app.use('/json-storage', storageRouter);
+app.use('/api/json-storage', storageRouter);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });

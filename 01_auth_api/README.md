@@ -7,7 +7,7 @@
 2.  Write in terminal `cd src`.
 3.  Add `.env` file with your credentials in `.\backend` folder.
 4.  Write in terminal `docker-compose up` to launch backend and database.
-5.  REST API will be available on the address: `http://localhost:3000/`.
+5.  REST API will be available on the address: `http://localhost:3000/api`.
 
 <h2 align = "center"> Task description.</h2>
 

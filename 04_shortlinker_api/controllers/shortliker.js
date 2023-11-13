@@ -3,7 +3,7 @@ const path = require('path');
 
 const { ctrlWrapper, urlCheck, generateShortUrl } = require('../helpers');
 
-const { PORT, API_URL } = process.env;
+const { BASE_URL } = process.env;
 
 const dbDir = path.join(__dirname, '../db/links.json');
 
@@ -28,7 +28,7 @@ const createShortLink = async (req, res) => {
 
   await fs.writeFile(dbDir, JSON.stringify(urlsObj, null, 2), 'utf8');
 
-  res.json({ shortUrl: `${API_URL}:${PORT}/${shortUrl}` });
+  res.json({ shortUrl: `${BASE_URL}/${shortUrl}` });
 };
 
 // get short link
