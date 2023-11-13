@@ -10,4 +10,6 @@ router.post('/sign-up', validateBody, ctrl.register);
 
 router.post('/sign-in', validateBody, ctrl.login);
 
+router.post('/refresh', ctrl.refresh);
+
 module.exports = router;

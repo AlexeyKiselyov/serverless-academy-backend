@@ -51,8 +51,8 @@ const register = async (req, res) => {
     success: true,
     data: {
       id: newUser.id,
-      accessToken: newUser.accesstoken,
-      refreshToken: newUser.refreshtoken,
+      accessToken,
+      refreshToken,
     },
   });
 };
@@ -99,13 +99,58 @@ const login = async (req, res) => {
     success: true,
     data: {
       id: user.id,
-      accessToken: accessToken,
-      refreshToken: refreshToken,
+      accessToken,
+      refreshToken,
     },
   });
+};
+
+// refresh controller
+const refresh = async (req, res) => {
+  const { refreshToken: token } = req.body;
+  try {
+    const { id } = jwt.verify(token, REFRESH_SECRET_KEY);
+
+    const {
+      rows: [isExist],
+    } = await db.query('SELECT * FROM users where refreshToken=$1', [token]);
+
+    if (!isExist) {
+      throw HttpError(403, 'Token invalid');
+    }
+
+    const payload = {
+      id,
+    };
+
+    const accessToken = jwt.sign(payload, ACCESS_SECRET_KEY, {
+      expiresIn: ACCESS_TOKEN_EXPIRES,
+    });
+
+    const refreshToken = jwt.sign(payload, REFRESH_SECRET_KEY, {
+      expiresIn: REFRESH_TOKEN_EXPIRES,
+    });
+
+    await db.query(
+      'UPDATE users SET accessToken=$1, refreshToken=$2 WHERE id=$3',
+      [accessToken, refreshToken, id]
+    );
+
+    res.status(200).json({
+      success: true,
+      data: {
+        id,
+        accessToken,
+        refreshToken,
+      },
+    });
+  } catch (error) {
+    throw HttpError(403, error.message);
+  }
 };
 
 module.exports = {
   register: ctrlWrapper(register),
   login: ctrlWrapper(login),
+  refresh: ctrlWrapper(refresh),
 };
