@@ -10,7 +10,6 @@ const dbDir = path.join(__dirname, '../db/links.json');
 // create short link and save in db
 const createShortLink = async (req, res) => {
   const { url } = req.body;
-
   if (!url) {
     return res.status(400).json({ error: 'Missing "url" parameter' });
   }
@@ -23,7 +22,6 @@ const createShortLink = async (req, res) => {
 
   const urlsList = await fs.readFile(dbDir, 'utf8');
   const urlsObj = JSON.parse(urlsList);
-
   urlsObj[shortUrl] = url;
 
   await fs.writeFile(dbDir, JSON.stringify(urlsObj, null, 2), 'utf8');
@@ -41,7 +39,7 @@ const getShortLink = async (req, res) => {
   const originalUrl = urlsObj[shortlink];
 
   if (originalUrl) {
-    res.json({ originalUrl });
+    res.redirect(originalUrl);
   } else {
     res.status(404).json({ error: 'Short URL not found' });
   }
