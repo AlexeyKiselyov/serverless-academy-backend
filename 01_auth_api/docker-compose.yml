@@ -6,7 +6,7 @@ services:
     container_name: backend
     restart: always
     ports:
-      - '3000:3000'
+      - 3000:3000
 
   db:
     image: postgres

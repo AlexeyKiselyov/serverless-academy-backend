@@ -1,8 +1,7 @@
 const { HttpError } = require('../helpers');
 
 const validateBody = (req, res, next) => {
-  const email = req.body.email;
-  const password = req.body.password;
+  const { email, password } = req.body;
 
   if (!email || !isEmailValid(email)) {
     next(HttpError(400, 'Invalid email address'));

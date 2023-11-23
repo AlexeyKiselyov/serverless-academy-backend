@@ -12,16 +12,16 @@ const authenticate = async (req, res, next) => {
   }
 
   try {
-    const { id } = jwt.verify(token, ACCESS_SECRET_KEY);
+    const { email } = jwt.verify(token, ACCESS_SECRET_KEY);
     const {
       rows: [user],
-    } = await db.query('SELECT * FROM users where id=$1', [id]);
+    } = await db.query('SELECT * FROM users where email=$1', [email]);
 
     if (!user || !user.accesstoken) {
       next(HttpError(401));
     }
 
-    req.user = user;
+    req.user = { id: user.id, email: user.email };
     next();
   } catch {
     next(HttpError(401));
