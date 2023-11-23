@@ -29,7 +29,7 @@ const register = async (req, res) => {
   const hashPassword = await bcrypt.hash(String(password), 10);
 
   const payload = {
-    id: email,
+    email,
   };
 
   const accessToken = jwt.sign(payload, ACCESS_SECRET_KEY, {
